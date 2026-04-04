@@ -1,0 +1,13 @@
+# Ignore source code (users only need the /dist folder)
+src/
+tsconfig.json
+tsup.config.ts
+
+# Ignore testing and tooling
+tests/
+jest.config.js
+.github/
+.husky/
+
+# Ignore local config
+.gitignore

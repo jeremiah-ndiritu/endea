@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output (ignore this in git!)
+dist/
+build/
+
+# Environment/Secrets
+.env
+*.log
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store

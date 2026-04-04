@@ -1,0 +1,37 @@
+{
+  "name": "endea",
+  "version": "0.1.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "pnpm build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mock fetch",
+    "simulate fetch",
+    "free fetch",
+    "schema",
+    "AI",
+    "AI data generator",
+    "mock data",
+    "mock data from types"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.30.1",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
+  }
+}
