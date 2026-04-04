@@ -58,8 +58,6 @@ const users = await endea<User>(
 
 ## 🧠 How It Works
 
-Click to expand
-
 1. Reads your input shape
 2. Infers types automatically
 3. Uses Faker to generate realistic values
