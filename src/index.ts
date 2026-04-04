@@ -2,9 +2,9 @@ import { intelligenceProcess } from "./intelligence";
 import { generateSchema } from "./schemagenerator";
 
 export type MockOptions = {
-  count: number;
+  count?: number;
   errorRate?: number;
-  latency: number;
+  latency?: number;
 };
 // Generic mock function
 export async function endea<T>(obj: T, options?: MockOptions): Promise<T[]> {
