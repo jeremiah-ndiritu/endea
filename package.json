@@ -13,6 +13,8 @@
     }
   },
   "scripts": {
+    "yalcpush":"pnpm build && yalc push",
+    "yalcpub": "pnpm build && yalc publish",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "dev": "pnpm build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,5 +35,8 @@
   "devDependencies": {
     "tsup": "^8.5.1",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
   }
 }

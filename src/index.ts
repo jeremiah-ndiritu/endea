@@ -11,6 +11,8 @@ export async function endea<T>(obj: T, options?: MockOptions): Promise<T[]> {
   const delay = options?.latency || 200
   const schema = generateSchema(obj);
   const enhancedData = intelligenceProcess<T>(schema, options);
+  //console.log(`[Package::endea] enhanced data: `, enhancedData)
+
   await new Promise((r) => setTimeout(r, delay))
   return [obj, ...enhancedData];
 }
@@ -33,7 +35,7 @@ type User = {
 //   console.log("object :>> ", object);
 //   const array = await endea<{ lan: string; code: number }[]>([
 //     { lan: "en", code: 3 },
-//   ]);
+//   ], );
 //   console.log("array :>> ", array);
 // })();
 

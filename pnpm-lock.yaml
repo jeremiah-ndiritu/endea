@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@faker-js/faker':
+        specifier: ^10.4.0
+        version: 10.4.0
     devDependencies:
       tsup:
         specifier: ^8.5.1
@@ -172,6 +176,10 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@faker-js/faker@10.4.0':
+    resolution: {integrity: sha512-sDBWI3yLy8EcDzgobvJTWq1MJYzAkQdpjXuPukga9wXonhpMRvd1Izuo2Qgwey2OiEoRIBr35RMU9HJRoOHzpw==}
+    engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -606,6 +614,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.7':
     optional: true
+
+  '@faker-js/faker@10.4.0': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:

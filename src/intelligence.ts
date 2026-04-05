@@ -1,3 +1,4 @@
+import { getPersonName, getSemanticValue } from "utils/faker/faker";
 import { MockOptions } from ".";
 import { Schema } from "types/schema";
 
@@ -19,9 +20,7 @@ export function intelligenceProcess<ST>(
     ) {
       // If there's only one field and it's NOT an object/array, return the value directly
       const field = currentSchema[0];
-      if (field.type === "number") return index + 1;
-      if (field.type === "string") return `Mock-${field.name}-${index + 1}`;
-      return null;
+      return getSemanticValue(field.name, field.type, index);
     }
     // 3. TOP-LEVEL ARRAY CHECK
     // If the schema is just one field named "items" of type "array",
@@ -50,15 +49,12 @@ export function intelligenceProcess<ST>(
         }
       } else {
         // Assign primitive to the key
-        if (field.type === "number") row[field.name] = index + 1;
-        else if (field.type === "string")
-          row[field.name] = `${field.name}-${index + 1}`;
-        else row[field.name] = null;
+        row[field.name] = getSemanticValue(field.name, field.type, index);
       }
     });
 
     return hasKeys ? row : null;
-  };;;
+  };
 
   for (let i = 0; i < count; i++) {
     const mocked = generateMockRow(schema, i);
