@@ -1,6 +1,6 @@
 {
   "name": "endea",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "yalcpush":"pnpm build && yalc push",
+    "yalcpush": "pnpm build && yalc push",
     "yalcpub": "pnpm build && yalc publish",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "dev": "pnpm build && node dist/index.js",
