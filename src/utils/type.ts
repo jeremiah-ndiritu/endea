@@ -1,3 +1,5 @@
+import LZString from 'lz-string'
+
 const exampleUser = {
   name: "Jeremiah",
   age: 20,
@@ -12,7 +14,7 @@ const exampleUser = {
   },
 };
 
-type TypeOf<T> = T extends string
+export type TypeOf<T> = T extends string
   ? "string"
   : T extends number
     ? "number"
@@ -28,7 +30,7 @@ type TypeOf<T> = T extends string
               ? { [K in keyof T]: TypeOf<T[K]> }
               : "unknown";
 
-function type<T>(obj: T): TypeOf<T> {
+export function entype<T>(obj: T): TypeOf<T> {
   if (obj === null) return "null" as TypeOf<T>;
 
   if (typeof obj !== "object") {
@@ -37,18 +39,23 @@ function type<T>(obj: T): TypeOf<T> {
 
   if (Array.isArray(obj)) {
     if (obj.length === 0) return [] as unknown as TypeOf<T>;
-    return [type(obj[0])] as unknown as TypeOf<T>; // infer from first element
+    return [entype(obj[0])] as unknown as TypeOf<T>; // infer from first element
   }
 
   const result: any = {};
 
   for (const key in obj) {
-    result[key] = type((obj as any)[key]);
+    result[key] = entype((obj as any)[key]);
   }
 
   return result;
 }
 
-const su = exampleUser; // {name: "jere", age: 30, ac: [{p: "", n:''}]};
-console.dir(type(su), { depth: null, showHidden: true });
+export function urlschema<T>(obj:T){
+  const typestring = JSON.stringify(entype(obj))
+  return LZString.compressToEncodedURIComponent(typestring)
+}
+
+// const su = exampleUser; // {name: "jere", age: 30, ac: [{p: "", n:''}]};
+// console.dir(entype(su), { depth: null, showHidden: true });
 

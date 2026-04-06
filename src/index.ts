@@ -7,7 +7,7 @@ export type MockOptions = {
   latency?: number;
 };
 // Generic mock function
-export async function endea<T>(obj: T, options?: MockOptions): Promise<T[]> {
+export default async function endea<T>(obj: T, options?: MockOptions): Promise<T[]> {
   const delay = options?.latency || 200
   const schema = generateSchema(obj);
   const enhancedData = intelligenceProcess<T>(schema, options);
@@ -41,4 +41,4 @@ type User = {
 
 // Type helper for users
 export type { Schema, FieldDescription } from "types/schema";
-export default endea
+export {entype, urlschema, type TypeOf} from "utils/type"

@@ -1,33 +1,13 @@
 import { faker, Sex } from "@faker-js/faker";
-type PNP = "full" | "first" | "last" | "middle";
-export function getPersonName(options?: { nametype?: PNP; sex?: Sex }) {
-  let name = "";
-  switch (options?.nametype) {
-    case "first":
-      name += faker.person.firstName(options.sex);
-      break;
-    case "full":
-      name += faker.person.fullName({ sex: options.sex });
-      break;
-    case "last":
-      name += faker.person.lastName(options.sex);
-      break;
-    case "middle":
-      name += faker.person.middleName(options.sex);
-      break;
-    default:
-      name += faker.person.fullName({ sex: options?.sex });
-      break;
-  }
-
-  console.log(`faker.person['fullName']() :>> `, name);
-  return name;
-}
-getPersonName();
-
+type EmailOptions = {
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  provideR?: string | undefined;
+  allowSpecialCharacters?: boolean | undefined;
+};
 // Map common field names to Faker methods
 const strategyMap: Record<string, () => any> = {
-  email: () => faker.internet.email(),
+  email: (options?: EmailOptions) => faker.internet.email(options),
   username: () => faker.internet.username(),
   avatarurl: () => faker.image.avatar(),
   image: () => faker.image.url(),

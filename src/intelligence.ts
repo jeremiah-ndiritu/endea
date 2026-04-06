@@ -1,4 +1,4 @@
-import { getPersonName, getSemanticValue } from "utils/faker/faker";
+import { getSemanticValue } from "utils/faker/faker";
 import { MockOptions } from ".";
 import { Schema } from "types/schema";
 
