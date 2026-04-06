@@ -7,13 +7,16 @@ export type MockOptions = {
   latency?: number;
 };
 // Generic mock function
-export default async function endea<T>(obj: T, options?: MockOptions): Promise<T[]> {
-  const delay = options?.latency || 200
+export default async function endea<T>(
+  obj: T,
+  options?: MockOptions,
+): Promise<T[]> {
+  const delay = options?.latency || 200;
   const schema = generateSchema(obj);
   const enhancedData = intelligenceProcess<T>(schema, options);
   //console.log(`[Package::endea] enhanced data: `, enhancedData)
 
-  await new Promise((r) => setTimeout(r, delay))
+  await new Promise((r) => setTimeout(r, delay));
   return [obj, ...enhancedData];
 }
 type User = {
@@ -40,6 +43,7 @@ type User = {
 // })();
 
 // Type helper for users
-export {endea}
+export { endea };
+export { intelligenceProcess, generateSchema };
 export type { Schema, FieldDescription } from "types/schema";
-export {entype, urlschema, type TypeOf} from "utils/type"
+export { entype, urlschema, type TypeOf } from "utils/type.utils/entype";
