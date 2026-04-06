@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "bnp": "pnpm build && pnpm publish --access public",
     "yalcpush": "pnpm build && yalc push",
     "yalcpub": "pnpm build && yalc publish",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
