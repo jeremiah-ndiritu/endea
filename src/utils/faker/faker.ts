@@ -1,4 +1,4 @@
-import { faker, Sex } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 type EmailOptions = {
   firstName?: string | undefined;
   lastName?: string | undefined;

@@ -1,18 +1,4 @@
-import LZString from 'lz-string'
-
-const exampleUser = {
-  name: "Jeremiah",
-  age: 20,
-  email: "a@b.com",
-  address: { city: "Nairobi", zip: 10100 },
-  family: {
-    nuclear: {
-      father: "",
-      mother: { mname: "", kids: [{ kname: "", kage: 2 }] },
-      sister: "",
-    },
-  },
-};
+import LZString from "lz-string";
 
 export type TypeOf<T> = T extends string
   ? "string"
@@ -51,11 +37,23 @@ export function entype<T>(obj: T): TypeOf<T> {
   return result;
 }
 
-export function urlschema<T>(obj:T){
-  const typestring = JSON.stringify(entype(obj))
-  return LZString.compressToEncodedURIComponent(typestring)
+export function urlschema<T>(obj: T) {
+  const typestring = JSON.stringify(entype(obj));
+  return LZString.compressToEncodedURIComponent(typestring);
 }
 
+// const exampleUser = {
+//   name: "Jeremiah",
+//   age: 20,
+//   email: "a@b.com",
+//   address: { city: "Nairobi", zip: 10100 },
+//   family: {
+//     nuclear: {
+//       father: "",
+//       mother: { mname: "", kids: [{ kname: "", kage: 2 }] },
+//       sister: "",
+//     },
+//   },
+// };
 // const su = exampleUser; // {name: "jere", age: 30, ac: [{p: "", n:''}]};
 // console.dir(entype(su), { depth: null, showHidden: true });
-

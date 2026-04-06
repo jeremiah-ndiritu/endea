@@ -40,5 +40,6 @@ type User = {
 // })();
 
 // Type helper for users
+export {endea}
 export type { Schema, FieldDescription } from "types/schema";
 export {entype, urlschema, type TypeOf} from "utils/type"
