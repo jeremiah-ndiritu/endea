@@ -45,5 +45,6 @@ type User = {
 // Type helper for users
 export { endea };
 export { intelligenceProcess, generateSchema };
+export { schemaFromEntypeResult } from "utils/type.utils/typemap";
 export type { Schema, FieldDescription } from "types/schema";
 export { entype, urlschema, type TypeOf } from "utils/type.utils/entype";
